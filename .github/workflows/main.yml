@@ -1,0 +1,5 @@
+- name: Use secret
+  env:
+    ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}  # Correctly references the secret
+  run: |
+    echo "Using the secret in a workflow step"
