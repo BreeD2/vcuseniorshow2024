@@ -83,5 +83,25 @@
 
         </script>
 
+        <script>
+        <script>
+          document.getElementById('imageForm').addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const imageUrl = document.getElementById('imageUrl').value;
+
+              const response = await fetch('/.netlify/functions/submit-image', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ imageUrl })
+              });
+
+              if (response.ok) {
+                  alert("Image submitted successfully.");
+              } else {
+                  alert("Failed to submit image.");
+              }
+          });
+        </script>
+
 </body>
 </html>
