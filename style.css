@@ -1,0 +1,22 @@
+  /* Previous styles for #house, #door, #room, .hidden, .show, .doorOpen */
+    
+  #lightSwitch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 40px;
+    background-color: #999;
+    border: 3px solid #333;
+    border-radius: 10px; /* Rounded edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lightOn #lightSwitch {
+    background-color: #FFD700; /* Change color to indicate light is on */
+}
+
+.lightOn {
+    background-color: #FFF8DC; /* Light yellow to simulate light */
+}

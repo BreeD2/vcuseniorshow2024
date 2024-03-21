@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Door to Another Room with Light Switch</title>
+    <style>
+        #lightSwitch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 80px;
+            background-color: #DDD;
+            border: 2px solid #666;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #switchLever {
+            width: 20px;
+            height: 40px;
+            background-color: white;
+            border: 2px double black;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .lightOn #switchLever {
+            transform: translateY(10px);
+        }
+
+        body.lightOn {
+            background-color:dimgrey;
+            color: white;
+        }
+
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+            background-color: white;
+            color: black;
+        }
+
+        /* Optional: CSS for specific cursor states if needed */
+.cursor1 {
+  cursor: url('cursor1.cur'), auto;
+}
+
+.cursor2 {
+  cursor: url('cursor2.cur'), auto;
+}
+
+    </style>
+</head>
+<body>
+    <audio id="switchOnSound" src="light.wav"></audio>
+    <audio id="switchOffSound" src="light.wav"></audio>
+    
+    <div id="house">
+        <div id="door" class="doorClosed">Door</div>
+        <div id="room" class="hidden">Another Room</div>
+        <div id="lightSwitch">
+            <div id="switchLever"></div>
+        </div>
+
+
+
+        <script>
+            document.getElementById('lightSwitch').addEventListener('click', function() {
+    var body = document.body; // Target the body for the class toggle
+    var switchOnSound = document.getElementById('switchOnSound'); // Get the on sound
+    var switchOffSound = document.getElementById('switchOffSound'); // Get the off sound
+
+    if (body.classList.contains('lightOn')) {
+        body.classList.remove('lightOn');
+        switchOffSound.play(); // Play the off sound
+    } else {
+        body.classList.add('lightOn');
+        switchOnSound.play(); // Play the on sound
+    }
+});
+
+        </script>
+    
+</body>
+</html>
