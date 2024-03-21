@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OAuth Callback</title>
+</head>
+<body>
+    <script>
+        // Example JavaScript to parse the OAuth response
+        window.onload = function() {
+            // Parse the URL query parameters
+            const params = new URLSearchParams(window.location.search);
+            // Example: Extract an authorization code
+            const code = params.get('code');
+            if (code) {
+                // Handle the authorization code (e.g., exchange it for a token)
+                console.log("Authorization Code:", code);
+                // Redirect to another page or show a message
+            } else {
+                // Handle error or absence of code
+                console.log("OAuth callback did not include an authorization code.");
+            }
+        };
+    </script>
+</body>
+</html>
