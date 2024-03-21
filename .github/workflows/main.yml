@@ -1,0 +1,17 @@
+name: Example Workflow Using a Secret
+
+on: [push]  # Triggers the workflow on push events to the repository
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest  # Specifies the runner environment
+    
+    steps:
+      - uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE
+      
+      # Your provided step using the secret
+      - name: Use secret
+        env:
+          ACCESS_TOKEN: ${{ secrets.apISJN019Nds9Po81Nbs9kS14 }}  # Uses the secret
+        run: |
+          echo "Using the secret in a workflow step"
